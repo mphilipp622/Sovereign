@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 57c9c039a02cdde4789c7f00785b8940
+timeCreated: 1443038903
+licenseType: Pro
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - projectile: {fileID: 5478902, guid: 6fa1dcd9587b20142b2a4ffd36af381b, type: 2}
+  - clone: {instanceID: 0}
+  - spawnpoint: {fileID: 406270, guid: 132bf460485466e458f0b882b55606ea, type: 2}
+  - camera: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
