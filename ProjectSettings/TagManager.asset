@@ -10,6 +10,8 @@ TagManager:
   - Wood
   - Blue
   - Red
+  - Inventory
+  - PlayerInventory
   layers:
   - Default
   - TransparentFX
