@@ -7,6 +7,7 @@
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class backpack : MonoBehaviour
 {
@@ -17,20 +18,51 @@ public class backpack : MonoBehaviour
     private GameObject gamecontroller;
     private vp_FPPlayerEventHandler m_Player = null;//UFPS Event Handler for Player
     private vp_FPInput m_Input = null;//UFPS Input for Player
-    CursorLockMode MenuOpen;
+    private GameObject[] pi_Objects;
+    int i = 0;
+    int pi_objectCount =0;
 
-    /*
-     Cursor.lockState = MenuOpen = CursorLockMode.Locked;
-     Cursor.lockState = MenuOpen;
-     Cursor.visible = (CursorLockMode.Locked != MenuOpen);
-            */
 
-    void SetCursorState()
+
+  
+            
+
+    void showmenu()
     {
-        Cursor.lockState = MenuOpen;
-        // Hide cursor when locking
-        Cursor.visible = (CursorLockMode.Locked != MenuOpen);
+        Time.timeScale.Equals(0);
+
+        // itemmenu.SetActive(true);
+        i = 0;
+
+        while (i < pi_objectCount && pi_objectCount > 0)
+        {
+            Debug.Log(i + " " + pi_Objects[i].name);
+            pi_Objects[i].SetActive(true);
+            i++;
+        }
+        m_Player.Pause.Set(true);
+        m_Input.MouseCursorForced = true;
+        Cursor.visible = true;
     }
+    void hidemenu()
+    {
+        Time.timeScale.Equals(1);
+            //itemmenu.SetActive(false);
+            i = 0;          
+            while (i < pi_objectCount && pi_objectCount > 0)
+            {
+                Debug.Log(i + " " + pi_Objects[i].name);
+                pi_Objects[i].SetActive(false);
+                i++;
+            }
+     //   m_Player.Pause.Set(!m_Player.Pause.Get());
+
+        m_Player.Pause.Set(false);
+        Cursor.lockState = CursorLockMode.Locked;//Unity 5.2 lock the cursor
+        m_Input.MouseCursorForced = false;
+        Cursor.visible = false;
+    }
+
     void Awake()
     {
 
@@ -40,30 +72,47 @@ public class backpack : MonoBehaviour
         m_Input = FPS_Player.transform.GetComponent<vp_FPInput>();
         gamepaused = false;
         gamecontroller = GameObject.FindGameObjectWithTag("GameController");
-        itemmenu = GameObject.FindGameObjectWithTag("PlayerInventory");
-        Debug.Log(itemmenu.name);
+      // itemmenu = GameObject.FindGameObjectWithTag("PlayerInventory");
+        pi_Objects= GameObject.FindGameObjectsWithTag("PlayerInventory");
+        
+        pi_objectCount = pi_Objects.Length;
+       while(i < pi_objectCount && pi_objectCount >0)
+       {
+          // Debug.Log(i+" "+pi_Objects[i].name);
+            pi_Objects[i].SetActive(false);
+          i++;
+        }
 
-        //craftmenu
+   
     }
-
 
     void Update()
     {
-        if (!itemmenu)
+
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            Debug.Log("crafting MENUEUUUE 6");
-            itemmenu = GameObject.FindGameObjectWithTag("PlayerMenu");
-            Debug.Log(itemmenu.name);
+            Debug.Log("crafting MENUEUUUE 2");
+            //toggle pause
+            if (gamepaused == false)
+            {
 
-            itemmenu.SetActive(false);
+                Debug.Log("Game is not paused 3");
+
+                gamepaused = true;
+                showmenu();
+            }
+            else
+            {
+
+                Debug.Log("Game is paused 4");
+                gamepaused = false;
+                hidemenu();
+
+            }
         }
-        else if (itemmenu.activeSelf == true && gamepaused == false || Time.timeScale == 0)
-        {
-            itemmenu.SetActive(false);
-        }
 
-        CraftMenu();
 
+        /*
     
 
         // -------------------------------------------------------------------------------------
@@ -153,59 +202,35 @@ public class backpack : MonoBehaviour
 
         }
 
+  
+
+
+*/
     }
-
-
-
     void CraftMenu()
     {
       
         Debug.Log("crafting MENUEUUUE 1");
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Debug.Log("crafting MENUEUUUE 2");
-            //toggle pause
-            if (gamepaused == false)
-            {
-
-                Debug.Log("Game is not paused 3");
-
-                gamepaused = true;
-            }
-            else
-            {
-
-                Debug.Log("Game is paused 4");
-                gamepaused = false;
-
-            }
-        }
+        
 
         //when game is paused
         if (gamepaused == true)
         {
             Debug.Log("Game is pause 5");
           
-            Time.timeScale.Equals(0);
-
-         //   SetCursorState();
-            itemmenu.SetActive(true);
-            //   m_Input.MouseCursorForced = true;
-            //Cursor.visible = true;
-            m_Player.Pause.Set(true);
+          
+            showmenu();
 
         }
         else
         {
             Debug.Log("Game is pause 6");
             Time.timeScale.Equals(1);
-            itemmenu.SetActive(false);
-            m_Player.Pause.Set(false);
+            //itemmenu.SetActive(false);
+            hidemenu();
 
-            //  m_Player.Pause.Set(!m_Player.Pause.Get());
-            //   Cursor.lockState = CursorLockMode.Locked;//Unity 5.2 lock the cursor
-            // Cursor.visible = false;//Unity 5.2 turn off the cursor
-            //m_Input.MouseCursorForced = false;//Change cursor back to normal in game mode
+     
+
         }
 
     }
