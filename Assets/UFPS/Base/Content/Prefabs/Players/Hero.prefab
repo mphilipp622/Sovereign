@@ -4322,10 +4322,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ItemRecords:
     itemList: 56
-    helpbox: 188
+    helpbox: 155
   m_ItemCaps:
     itemList: 88
-    helpbox: 144
+    helpbox: 122
   m_SpaceLimit:
     spaceLimit: 0
     helpbox: 0
@@ -4339,6 +4339,9 @@ MonoBehaviour:
   AllowOnlyListed: 0
   m_TotalSpace: 100
   m_UsedSpace: 0
+  m_CurrentWeaponInstance:
+    Type: {fileID: 0}
+    ID: 0
   m_AutoWield:
     Always: 0
     IfUnarmed: 1
@@ -4383,7 +4386,7 @@ MonoBehaviour:
   SpawnOnAwake: 0
   SpawnSound: {fileID: 8300000, guid: c6ffb5ccbd00a114494143e33e747a05, type: 3}
   SpawnFXPrefabs: []
-  helpbox: 188
+  helpbox: 166
 --- !u!114 &11400042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4958,7 +4961,7 @@ MonoBehaviour:
   SurfaceType: {fileID: 11400000, guid: d5038622b1b2a6f43874b4c45ddadc71, type: 2}
   AllowDecals: 0
   SurfaceID: 0
-  surfaceTypeHelp: 150
+  surfaceTypeHelp: 194
 --- !u!114 &11453304
 MonoBehaviour:
   m_ObjectHideFlags: 1
