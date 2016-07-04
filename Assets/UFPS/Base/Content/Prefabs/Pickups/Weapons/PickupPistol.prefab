@@ -32,6 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -1, z: 0, w: -0.00000013296312}
   m_LocalPosition: {x: 115.746185, y: 104.137985, z: -105.78344}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -121,7 +122,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -143,7 +144,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -165,7 +166,7 @@ MonoBehaviour:
   SpawnOnAwake: 0
   SpawnSound: {fileID: 8300000, guid: c6ffb5ccbd00a114494143e33e747a05, type: 3}
   SpawnFXPrefabs: []
-  helpbox: 199
+  helpbox: 166
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: {x: 0, y: 90, z: 0}
-  helpbox: 100
+  helpbox: 89
   separator: 0
 --- !u!114 &11400004
 MonoBehaviour:
@@ -212,7 +213,7 @@ MonoBehaviour:
   Amount: 19
   m_Item:
     Type: {fileID: 11400000, guid: 9c735e67aa6215240940ff57b7665829, type: 2}
-    helpbox: 199
+    helpbox: 177
   m_Recipient:
     Tags: []
     helpbox: 0

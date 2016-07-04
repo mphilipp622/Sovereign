@@ -51,7 +51,7 @@ public class backpack : MonoBehaviour
     {
         Time.timeScale.Equals(1);
         loadButtons.StartGamePrimaryGun();
-        lsecondarygun.StartGameSecondary();
+        lsecondarygun.changeweapon();
             itemmenu.SetActive(false);
         
         i = 0;

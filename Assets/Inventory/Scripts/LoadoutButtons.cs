@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
+using System.Collections.Generic;
 
 public class LoadoutButtons : MonoBehaviour {
 	
@@ -11,9 +13,15 @@ public class LoadoutButtons : MonoBehaviour {
 	public GameObject M4A1 = null;
 	public GameObject Shotgun = null;
 	public Transform player = null;
-	
-	public void NextGun() {
-		if (GunType < maxGunType) {
+    private bool hasprimary = false;
+    private vp_PlayerInventory m_Inventory = null;
+    private vp_FPPlayerEventHandler Ehandler = null;
+    private vp_WeaponHandler Whandler = null;
+    private int T_Pweapons = 0;
+    private List<vp_ItemType> PW_inventory = new List<vp_ItemType>(); // available secondary weapons in the inventory
+
+    public void NextGun() {
+		if (GunType <= maxGunType) {
 			GunType = GunType +1;
 		}
 	}
@@ -23,28 +31,137 @@ public class LoadoutButtons : MonoBehaviour {
 			GunType = GunType - 1;
 		}
 	}
+    public void searchforprimary()
+    {
+        for (int i = 0; i < m_Inventory.m_ItemCapInstances.Count; i++)
+        {
+            //      Debug.Log("m_Inventory.m_ItemCapInstances[" + i +"].Type.name== " + m_Inventory.m_ItemCapInstances[i].Type.name);
+            if (m_Inventory.m_ItemCapInstances[i].Type.name == "AssaultRifle01")
+            {
+                //Calculating total available secondary weapons and Then Calculate how many of each secondary
+                // weapon there is in the inventory
+                vp_ItemType thisweapon = m_Inventory.m_ItemCapInstances[i].Type;
+                //if the item exists then update available secondary weapons in the inventory
+                Debug.Log("1 Does SW_inventory contain AssaultRifle==" + PW_inventory.Contains(thisweapon));
+                Debug.Log("How many  AssaultRifle in inventory==" + m_Inventory.GetItemCount(thisweapon));
 
-	public void StartGamePrimaryGun(){
+                if (m_Inventory.GetItemCount(thisweapon) > 0 && PW_inventory.Contains(thisweapon) == false)
+                {
+                    //    maxGunType++;
+                    Gun1Text.text = m_Inventory.m_ItemCapInstances[i].Type.name;
 
-		if (GunType == 1) {
-			Instantiate(M4A1, player.position, player.rotation);
-		}
+                    //if item exists in the inventory but not yet in the SW_invenotry increment total available
+                    //secondary weapon and add too list
+                    T_Pweapons++;
+                    Debug.Log("Number of" + m_Inventory.m_ItemCapInstances[i].Type.name + "==" + m_Inventory.GetItemCount(thisweapon));
+                    PW_inventory.Add(thisweapon);
+                    Debug.Log(" 2 Does SW_inventory contain AssaultRifle==" + PW_inventory.Contains(thisweapon));
+                    Debug.Log("PW_inventory ===" + PW_inventory.Capacity);
+                    //   break;
 
-		if (GunType == 2) {
-			Instantiate(Shotgun, player.position, player.rotation);
-		}
-	}
-	void Update (){
-		if (GunType == 1)
-			Gun1Text.text = "M4A1";
-		//Debug.Log ("Changed Text to M4A1");
+                }
+         
 
-		if (GunType == 0)
-			Gun1Text.text = "None";
-		//Debug.Log ("Changed Text to None");
 
-		if (GunType == 2)
-			Gun1Text.text = "Shotgun";
-		//Debug.Log ("Changed Text to Shotgun");
-	}
+            }
+       
+        }
+        Debug.Log("T_sweapons===" + T_Pweapons);
+
+    }
+
+    public vp_ItemType searchSWlist(string weaponame)
+    {
+        vp_ItemType weapon = null;
+        for (int i = 0; i < PW_inventory.Count; i++)
+        {
+            if (PW_inventory[i].name == weaponame)
+            {
+                weapon = PW_inventory[i];
+            }
+
+        }
+        return weapon;
+    }
+
+    public void StartGamePrimaryGun(){
+
+        if (GunType == 0)
+        {
+
+            Debug.Log("No Secondary Weapon Selected");
+
+            //herrrrrrrrrrrrrrrrrrrrrrwweeeeeeeeeeeeeeeeee
+            //Whandler.SetWeapon(1);
+            Ehandler.SetWeapon.TryStart(0);
+
+
+        }
+
+        if (GunType == 1)
+        {
+            string weaponName = "AssaultRifle01";
+            for (int i = 0; i < m_Inventory.m_ItemCapInstances.Count; i++)
+            {
+                vp_ItemType thisweapon = m_Inventory.m_ItemCapInstances[i].Type;
+
+                if (m_Inventory.m_ItemCapInstances[i].Type.name == weaponName)
+                {
+                    if (PW_inventory.Contains(thisweapon))
+                    {
+                        Debug.Log("AssaultRifle EXISTS IN LIST AND SETTING AssaultRifle");
+
+
+                        //Whandler.SetWeapon(1);
+                        Ehandler.SetWeapon.TryStart(2);
+
+                    }
+                }
+
+            }
+
+        }
+    }
+    public void currentsecondary(int GunType)
+    {
+        if (GunType == 1)
+        {
+            if (searchSWlist("Knife") != null)
+                Gun1Text.text = searchSWlist("Knife").name;
+            //Debug.Log ("Changed Text to Knife");
+            StartGamePrimaryGun();
+        }
+        if (GunType == 0)
+        {
+            if (searchSWlist("None") == null)
+                Gun1Text.text = "None";
+            //Debug.Log ("Changed Text to Knife");
+            StartGamePrimaryGun();
+        }
+        //Debug.Log ("Changed Text to None");
+
+
+    }
+
+    void Awake()
+    {
+        m_Inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<vp_PlayerInventory>();
+        Ehandler = GameObject.FindGameObjectWithTag("Player").GetComponent<vp_FPPlayerEventHandler>();
+        Whandler = GameObject.FindGameObjectWithTag("Player").GetComponent<vp_WeaponHandler>();
+        //How many secondary weapons exist?  maxGunType
+
+        Ehandler.SetWeapon.TryStart(0);
+
+
+    }
+    void Update (){
+        searchforprimary();
+
+        maxGunType = PW_inventory.Count;
+
+        //     Debug.Log("SW_inventory[2] " + SW_inventory[2]);
+
+
+        Debug.Log("maxGunType==" + maxGunType);
+    }
 }
