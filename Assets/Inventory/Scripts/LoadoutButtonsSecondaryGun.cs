@@ -138,7 +138,20 @@ public class LoadoutButtonsSecondaryGun : MonoBehaviour {
         }
         return weapon;
             }
-    public void changeweapon() {
+    public bool SecondaryExist(string weaponame)
+    {
+        for (int i = 0; i < SW_inventory.Count; i++)
+        {
+            if (SW_inventory[i].name == weaponame)
+            {
+                return true;
+            }
+
+        }
+        return false;
+    }
+ 
+    public int changeweapon() {
         if (SecondaryGunType == 0)
         {
   
@@ -163,10 +176,10 @@ public class LoadoutButtonsSecondaryGun : MonoBehaviour {
                     {
                         Debug.Log("Knife EXISTS IN LIST AND SETTING Knife");
 
-                       
-                        //Whandler.SetWeapon(1);
-                        Ehandler.SetWeapon.TryStart(5);
 
+                        //Whandler.SetWeapon(1);
+                        //Ehandler.SetWeapon.TryStart(5);
+                        return 5;
                     }
                 }
 
@@ -187,9 +200,9 @@ public class LoadoutButtonsSecondaryGun : MonoBehaviour {
                         Debug.Log("Pistol EXISTS IN LIST AND SETTING Pistol");
 
 
-                        //  Whandler.SetWeapon(1);
-                        Ehandler.SetWeapon.TryStart(1);
-
+                        //       Whandler.SetWeapon(1);
+                        // Ehandler.SetWeapon.TryStart(1);
+                        return 1;
                     }
                 }
 
@@ -212,12 +225,13 @@ public class LoadoutButtonsSecondaryGun : MonoBehaviour {
 
                         //herrrrrrrrrrrrrrrrrrrrrrwweeeeeeeeeeeeeeeeee
                         //Whandler.SetWeapon(1);
-                        Ehandler.SetWeapon.TryStart(6);
-
+                        //Ehandler.SetWeapon.TryStart(6);
+                        return 6;
                     }
                 }
             }
         }
+        return 0;
     }
     public void currentsecondary(int SecondaryGunType)
     {

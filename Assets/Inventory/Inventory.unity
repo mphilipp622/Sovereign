@@ -744,7 +744,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400022, guid: 6f91aed317ae6e5468fc28c3ad0fb2cd, type: 2}
       propertyPath: m_UnitBankInstances.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11400022, guid: 6f91aed317ae6e5468fc28c3ad0fb2cd, type: 2}
       propertyPath: m_InternalUnitBanks.Array.size
@@ -827,7 +827,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400022, guid: 6f91aed317ae6e5468fc28c3ad0fb2cd, type: 2}
       propertyPath: m_ItemRecords.itemList
-      value: 150
+      value: 171
       objectReference: {fileID: 0}
     - target: {fileID: 11400022, guid: 6f91aed317ae6e5468fc28c3ad0fb2cd, type: 2}
       propertyPath: m_ItemCaps.itemList
@@ -1110,7 +1110,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 6f91aed317ae6e5468fc28c3ad0fb2cd, type: 2}
       propertyPath: weaponHelp
-      value: 276
+      value: 210
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 6f91aed317ae6e5468fc28c3ad0fb2cd, type: 2}
       propertyPath: ID
@@ -1177,6 +1177,34 @@ Prefab:
     - target: {fileID: 100144, guid: 6f91aed317ae6e5468fc28c3ad0fb2cd, type: 2}
       propertyPath: m_Name
       value: 1Pistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400022, guid: 6f91aed317ae6e5468fc28c3ad0fb2cd, type: 2}
+      propertyPath: m_AutoWield.helpbox
+      value: 78
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400022, guid: 6f91aed317ae6e5468fc28c3ad0fb2cd, type: 2}
+      propertyPath: m_AutoWield.IfUnarmed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400022, guid: 6f91aed317ae6e5468fc28c3ad0fb2cd, type: 2}
+      propertyPath: m_AutoWield.IfOutOfAmmo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400022, guid: 6f91aed317ae6e5468fc28c3ad0fb2cd, type: 2}
+      propertyPath: m_AutoWield.IfNotPresent
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400022, guid: 6f91aed317ae6e5468fc28c3ad0fb2cd, type: 2}
+      propertyPath: m_Misc.ResetOnRespawn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400022, guid: 6f91aed317ae6e5468fc28c3ad0fb2cd, type: 2}
+      propertyPath: m_SpaceLimit.spaceLimit
+      value: 77
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400022, guid: 6f91aed317ae6e5468fc28c3ad0fb2cd, type: 2}
+      propertyPath: m_SpaceLimit.helpbox
+      value: 144
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f91aed317ae6e5468fc28c3ad0fb2cd, type: 2}
