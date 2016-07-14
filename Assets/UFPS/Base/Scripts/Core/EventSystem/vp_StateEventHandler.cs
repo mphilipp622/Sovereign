@@ -42,7 +42,6 @@ public abstract class vp_StateEventHandler : vp_EventHandler
 	/// </summary>
 	protected void BindStateToActivity(vp_Activity a)
 	{
-
 		BindStateToActivityOnStart(a);
 		BindStateToActivityOnStop(a);
 

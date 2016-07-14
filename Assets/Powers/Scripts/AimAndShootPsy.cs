@@ -26,7 +26,7 @@ public class AimAndShootPsy : MonoBehaviour {
 	private Transform particles;
 	private float startingParticleShape, startSpeedParticle;
 
-	private GameObject cameraParent;
+//	private GameObject cameraParent;
 	private Camera cam;
 
 	[SerializeField]
@@ -49,7 +49,7 @@ public class AimAndShootPsy : MonoBehaviour {
 
 		camera = Camera.main.transform;
 		cam = Camera.main;
-		cameraParent = GameObject.Find ("Offset");
+//		cameraParent = GameObject.Find ("Offset");
 		powerAudio = transform.GetComponent<AudioSource> ();
 		whereToShoot = new RaycastHit (); //Will be used for determining where to shoot object
 		powerParticleMain = transform.GetComponentInChildren<ParticleSystem>();
@@ -87,8 +87,8 @@ public class AimAndShootPsy : MonoBehaviour {
 		{
 			if(Input.GetButtonDown("Fire1"))
 			{
-				SendMessageUpwards ("ChangeDamping", 0.96f);
-				SendMessageUpwards("doShake"); // Start shaking camera when the player presses the button down.
+//				SendMessageUpwards ("ChangeDamping", 0.96f);
+//				SendMessageUpwards("doShake"); // Start shaking camera when the player presses the button down.
 				if(powerAudio.clip != powerChargeClip)
 					powerAudio.clip = powerChargeClip;
 				powerAudio.Play();
@@ -145,7 +145,7 @@ public class AimAndShootPsy : MonoBehaviour {
 			particles.gameObject.SetActive(false);
 			chargeTime = 0; //reset chargeTime
 			gameObject.SendMessageUpwards("PsyCharging", false); //Tell Character Controller we're no longer charging
-			SendMessageUpwards ("ChangeDamping", 0f);
+//			SendMessageUpwards ("ChangeDamping", 0f);
 		}
 		//is player letting go of mouse button and do they have an object currently?
 		else if (Input.GetButtonDown ("Fire1") && haveObject)
@@ -154,7 +154,7 @@ public class AimAndShootPsy : MonoBehaviour {
 		//make sure camera is returned to original position when user is not firing
 		if (chargeTime == 0) 
 		{
-			cameraParent.transform.localPosition = new Vector3 (0, 0, 0);
+//			cameraParent.transform.localPosition = new Vector3 (0, 0, 0);
 		}
 		//Setup the behavior for when we hit an object with our psychic power.
 		if (hitObject) 

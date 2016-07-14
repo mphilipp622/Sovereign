@@ -7,10 +7,13 @@ public class EnableManipulation : MonoBehaviour {
 	public Transform Spawnpoint, WhereToHoldObject;
 	public ParticleSystem psyParticles;
 	private Transform parentTransform;
+
+	PsyGrab psyGrab;
 	// Use this for initialization
 	void Start () {
 		//parentTransform = Camera.main.transform.FindChild ("PsyPower").transform;
-		parentTransform = Camera.main.transform;
+		parentTransform = GameObject.Find("2Power").transform;
+		psyGrab = parentTransform.GetComponent<PsyGrab>();
 		//parentTransform = Camera.main.transform.FindChild ("PsyPower").FindChild("EmptyParent").transform;
 	}
 	
@@ -22,14 +25,14 @@ public class EnableManipulation : MonoBehaviour {
 	void OnCollisionEnter(Collision collision){
 		if (collision.gameObject.tag == "CanManipulate") {
 
-			GameObject.Find ("PsyPower").GetComponent<AimAndShootPsy>().originalTransform = collision.gameObject.transform.parent;
+			psyGrab.OriginalTransform = collision.gameObject.transform.parent;
 			collision.rigidbody.isKinematic = true;
 			collision.gameObject.transform.SetParent (parentTransform);
 
 			//collision.gameObject.SendMessageUpwards("SetGrabbedObject", collision.rigidbody, SendMessageOptions.RequireReceiver);
 			//collision.gameObject.SendMessageUpwards("SetHitObjectBool", true, SendMessageOptions.RequireReceiver);
-			GameObject.Find ("PsyPower").GetComponent<AimAndShootPsy>().hitObject = true;
-			GameObject.Find ("PsyPower").GetComponent<AimAndShootPsy>().grabbedObject = collision.rigidbody;
+			psyGrab.HitObject = true;
+			psyGrab.GrabbedObject = collision.rigidbody;
 			//collision.gameObject.SendMessageUpwards("SetGrabbedBounds", collision.collider.bounds, SendMessageOptions.RequireReceiver);
 		}
 		ExplodeParticle ();

@@ -12,6 +12,9 @@ TagManager:
   - Red
   - Inventory
   - PlayerInventory
+  - PsyProjectile
+  - messagecenter
+  - CanManipulate
   layers:
   - Default
   - TransparentFX

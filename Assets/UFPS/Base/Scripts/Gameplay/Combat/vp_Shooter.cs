@@ -32,7 +32,7 @@ public class vp_Shooter : vp_Component
 		}
 	}
 
-	
+
 	protected GameObject m_ProjectileDefaultSpawnpoint = null;
 
 	// projectile
@@ -111,6 +111,7 @@ public class vp_Shooter : vp_Component
 
 	public Vector3 FirePosition = Vector3.zero;
 
+	Ray powerPath;
 
 	/// <summary>
 	/// in 'Awake' we do things that need to be run once at the
@@ -167,6 +168,10 @@ public class vp_Shooter : vp_Component
 		
 	}
 
+	void Update()
+	{
+		powerPath = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+	}
 
 	/// <summary>
 	/// 
@@ -317,6 +322,12 @@ public class vp_Shooter : vp_Component
 			GameObject p = null;
 
 			p = (GameObject)vp_Utility.Instantiate(ProjectilePrefab, m_CurrentFirePosition, m_CurrentFireRotation);
+
+			if(ProjectilePrefab.name == "PsyProjectile2")
+			{
+				p.GetComponent<Rigidbody>().velocity = powerPath.direction * 80;
+//				p.GetComponent<Rigidbody>().AddForce(Vector3.forward * 100, ForceMode.Impulse);
+			}
 
 			// TIP: uncomment this to debug-draw bullet paths and points of impact
 			//DrawProjectileDebugInfo(v);

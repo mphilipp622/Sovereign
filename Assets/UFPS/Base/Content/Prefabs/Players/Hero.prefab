@@ -4339,6 +4339,9 @@ MonoBehaviour:
   AllowOnlyListed: 0
   m_TotalSpace: 100
   m_UsedSpace: 0
+  m_CurrentWeaponInstance:
+    Type: {fileID: 0}
+    ID: 0
   m_AutoWield:
     Always: 0
     IfUnarmed: 1
@@ -4958,7 +4961,7 @@ MonoBehaviour:
   SurfaceType: {fileID: 11400000, guid: d5038622b1b2a6f43874b4c45ddadc71, type: 2}
   AllowDecals: 0
   SurfaceID: 0
-  surfaceTypeHelp: 150
+  surfaceTypeHelp: 205
 --- !u!114 &11453304
 MonoBehaviour:
   m_ObjectHideFlags: 1

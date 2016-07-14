@@ -359,7 +359,8 @@ public class vp_Activity : vp_Event			// non-generic version for 0 arguments
 	/// </summary>
 	public void Start(float forcedActiveDuration = 0.0f)
 	{
-
+		
+		
 		Active = true;
 
 		// override active duration, if provided
@@ -431,6 +432,7 @@ public class vp_Activity<V> : vp_Activity			// generic version with 1 argument
 
 		if (m_Active)
 			return false;
+
 
 		m_Argument = argument;
 

@@ -1198,6 +1198,9 @@ public class vp_FPController : vp_CharacterController
 		if (Player.Crouch.Active)
 			return false;
 
+		if(StaminaManager.SM.stamina < .1f)
+			return false;
+
 		return true;
 
 	}

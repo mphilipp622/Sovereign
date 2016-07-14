@@ -164,6 +164,10 @@ public class vp_PlayerEventHandler : vp_StateEventHandler
 
 	}
 
-
+	void Update()
+	{
+		if(Run.Active && StaminaManager.SM.stamina < .1f)
+			Run.Stop();
+	}
 }
 
