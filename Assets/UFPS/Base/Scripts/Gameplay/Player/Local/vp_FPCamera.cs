@@ -179,7 +179,7 @@ public class vp_FPCamera : vp_Component
 		}
 	}
 
-
+	Transform psyTransform;
 	/// <summary>
 	/// in 'Awake' we do things that need to be run once at the
 	/// very beginning. NOTE: as of Unity 4, gameobject hierarchy
@@ -289,7 +289,7 @@ public class vp_FPCamera : vp_Component
 	/// </summary>
 	protected override void Start()
 	{
-
+		psyTransform = transform.FindChild("2Power");
 		base.Start();
 
 		Refresh();
@@ -595,7 +595,12 @@ public class vp_FPCamera : vp_Component
 	/// </summary>
 	protected virtual void UpdateZoom()
 	{
-
+//		if(psyTransform.gameObject.activeSelf)
+//		{
+//			FPController.ResetState();
+//			return;
+//		}
+		
 		if (m_FinalZoomTime <= Time.time)
 			return;
 

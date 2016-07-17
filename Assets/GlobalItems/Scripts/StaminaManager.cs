@@ -6,7 +6,12 @@ public class StaminaManager : MonoBehaviour {
 
 	public static StaminaManager SM;
 
-	float _stamina = 5f;
+	private float maxStamina = 100f;
+	private float staminaRechargeDelay = 1.0f;
+	private float staminaPenaltyTime = 2.0f;
+	private float nextCanRunTime, nextStaminaRechargeTime;
+
+	float _stamina;
 
 	public float stamina
 	{
@@ -19,11 +24,6 @@ public class StaminaManager : MonoBehaviour {
 			_stamina = value;
 		}
 	}
-
-	private float maxStamina = 5.0f;
-	private float staminaRechargeDelay = 1.0f;
-	private float staminaPenaltyTime = 2.0f;
-	private float nextCanRunTime, nextStaminaRechargeTime;
 
 	vp_FPPlayerEventHandler eventHandler;
 	bool isRunning;
@@ -43,6 +43,7 @@ public class StaminaManager : MonoBehaviour {
 
 	void Start () 
 	{
+		stamina = maxStamina;
 		canCharge = true;
 		isRunning = false;
 		staminaBar = GameObject.Find("StaminaSlider").GetComponent<Slider>();

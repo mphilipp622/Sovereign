@@ -101,7 +101,7 @@ public class PsyGrab : MonoBehaviour {
 		powerPath = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 
 		//If user Presses Left Mouse and They are able to shoot
-		if (Input.GetButton ("Fire1") && canShoot && currentStamina >= 0) 
+		if (Input.GetButton ("Fire1") && canShoot && StaminaManager.SM.stamina >= 0) 
 		{
 			if(Input.GetButtonDown("Fire1"))
 			{

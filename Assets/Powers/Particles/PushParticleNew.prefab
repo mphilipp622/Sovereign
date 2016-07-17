@@ -1,106 +1,42 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &117532
+--- !u!1 &145948
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 421040}
+  - 4: {fileID: 408928}
+  - 54: {fileID: 5485964}
+  - 198: {fileID: 19860614}
+  - 199: {fileID: 19997510}
   m_Layer: 0
-  m_Name: Spawnpoint
+  m_Name: PushParticleNew
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &150828
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 464268}
-  - 82: {fileID: 8270486}
-  - 114: {fileID: 11437736}
-  - 114: {fileID: 11498330}
-  - 114: {fileID: 11423350}
-  - 114: {fileID: 11425718}
-  - 54: {fileID: 5490788}
-  - 114: {fileID: 11498598}
-  m_Layer: 0
-  m_Name: 2Power
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &158460
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 441086}
-  - 198: {fileID: 19888514}
-  - 199: {fileID: 19931994}
-  m_Layer: 0
-  m_Name: ChargeParticles
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &421040
+--- !u!4 &408928
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 117532}
+  m_GameObject: {fileID: 145948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3.03}
+  m_LocalPosition: {x: 11.37, y: 1.926, z: 36.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 464268}
-  m_RootOrder: 0
---- !u!4 &441086
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158460}
-  m_LocalRotation: {x: 0.7071068, y: 0.0002441414, z: 0.00024414147, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 0.37, z: 1.91}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 89.9657, y: 0.0396, z: 0}
-  m_Children: []
-  m_Father: {fileID: 464268}
-  m_RootOrder: 1
---- !u!4 &464268
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150828}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 421040}
-  - {fileID: 441086}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!54 &5490788
+--- !u!54 &5485964
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150828}
+  m_GameObject: {fileID: 145948}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -110,348 +46,14 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!82 &8270486
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150828}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
---- !u!114 &11423350
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150828}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a02e18bffdd5c1b458f442d33fbb9ec2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Persist: 0
-  States:
-  - TypeName: vp_WeaponShooter
-    Name: Default
-    TextAsset: {fileID: 0}
-    StatesToBlock: 
-  Children: []
-  Siblings: []
-  Family: []
-  Renderers: []
-  AudioSources: []
-  m_ProjectileSpawnPoint: {fileID: 0}
-  ProjectilePrefab: {fileID: 179470, guid: 85d1cafe31c1ca5458130ff97e98bd84, type: 2}
-  ProjectileScale: 1
-  ProjectileFiringRate: 0.3
-  ProjectileSpawnDelay: 0
-  ProjectileCount: 1
-  ProjectileSpread: 0
-  ProjectileSourceIsRoot: 1
-  FireMessage: 
-  MuzzleFlashPosition: {x: 0, y: 0, z: 0}
-  MuzzleFlashScale: {x: 1, y: 1, z: 1}
-  MuzzleFlashFadeSpeed: 0.075
-  MuzzleFlashPrefab: {fileID: 0}
-  MuzzleFlashDelay: 0
-  m_MuzzleFlashSpawnPoint: {fileID: 0}
-  ShellPrefab: {fileID: 0}
-  ShellScale: 1
-  ShellEjectDirection: {x: 1, y: 1, z: 1}
-  ShellEjectPosition: {x: 1, y: 0, z: 1}
-  ShellEjectVelocity: 0.2
-  ShellEjectDelay: 0
-  ShellEjectSpin: 0
-  m_ShellEjectSpawnPoint: {fileID: 0}
-  SoundFire: {fileID: 0}
-  SoundFireDelay: 0
-  SoundFirePitch: {x: 1, y: 1}
-  FirePosition: {x: 0, y: 0, z: 0}
-  ProjectileTapFiringRate: 0.1
-  MotionPositionRecoil: {x: 0, y: 0, z: -0.035}
-  MotionRotationRecoil: {x: -10, y: 0, z: 0}
-  MotionRotationRecoilDeadZone: 0.5
-  MotionDryFireRecoil: -0.1
-  MotionRecoilDelay: 0
-  MuzzleFlashFirstShotMaxDeviation: 180
-  SoundDryFire: {fileID: 0}
---- !u!114 &11425718
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4340de3df77c2a54f9a364f148691307, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerRB: {fileID: 5441648, guid: 85d1cafe31c1ca5458130ff97e98bd84, type: 2}
-  clone: {fileID: 0}
-  grabbedObject: {fileID: 0}
-  spawnpoint: {fileID: 0}
-  WhereToHoldObject: {fileID: 0}
-  originalTransform: {fileID: 0}
-  projectileSpeed: 80
-  maxChargeTime: 2
-  chargeTime: 0
-  heldDown: 0
-  haveObject: 0
-  hitObject: 0
-  canShoot: 1
-  canThrow: 0
-  costToShoot: 1
-  costToThrow: 1
-  costToPush: 1
-  currentStamina: 0
-  powerHoldClip: {fileID: 0}
-  powerChargeClip: {fileID: 0}
---- !u!114 &11437736
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8227215081904e84a97ab858e04ca55d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Persist: 0
-  States:
-  - TypeName: vp_FPWeapon
-    Name: Default
-    TextAsset: {fileID: 0}
-    StatesToBlock: 
-  Children: []
-  Siblings: []
-  Family: []
-  Renderers: []
-  AudioSources: []
-  Weapon3rdPersonModel: {fileID: 0}
-  Weapon3rdPersonInvisibleMaterial: {fileID: 0}
-  PositionOffset: {x: 0.55, y: -0.55, z: 1.5}
-  PositionSpring2Stiffness: 0.95
-  PositionSpring2Damping: 0.25
-  RotationOffset: {x: 0, y: 0, z: 0}
-  RotationSpring2Stiffness: 0.95
-  RotationSpring2Damping: 0.25
-  AnimationType: 1
-  AnimationGrip: 1
-  WeaponPrefab: {fileID: 108446, guid: 286cc0f022aa75f42a44800083a58c47, type: 2}
-  RenderingZoomDamping: 0.5
-  RenderingFieldOfView: 35
-  RenderingClippingPlanes: {x: 0.01, y: 10}
-  RenderingZScale: 1
-  PositionSpringStiffness: 0.01
-  PositionSpringDamping: 0.25
-  PositionFallRetract: 1
-  PositionPivotSpringStiffness: 0.01
-  PositionPivotSpringDamping: 0.25
-  PositionKneeling: 0.06
-  PositionKneelingSoftness: 1
-  PositionWalkSlide: {x: 0.5, y: 0.75, z: 0.5}
-  PositionPivot: {x: 0, y: 0, z: 0}
-  RotationPivot: {x: 0, y: 0, z: 0}
-  PositionInputVelocityScale: 1
-  PositionMaxInputVelocity: 25
-  RotationSpringStiffness: 0.01
-  RotationSpringDamping: 0.25
-  RotationPivotSpringStiffness: 0.01
-  RotationPivotSpringDamping: 0.25
-  RotationKneeling: 0
-  RotationKneelingSoftness: 1
-  RotationLookSway: {x: 1, y: 0.7, z: 0}
-  RotationStrafeSway: {x: 0.3, y: 1, z: 1.5}
-  RotationFallSway: {x: 1, y: -0.5, z: -3}
-  RotationSlopeSway: 0.5
-  RotationInputVelocityScale: 1
-  RotationMaxInputVelocity: 15
-  RetractionDistance: 0
-  RetractionOffset: {x: 0, y: 0}
-  RetractionRelaxSpeed: 0.25
-  ShakeSpeed: 0.05
-  ShakeAmplitude: {x: 0.25, y: 0, z: 2}
-  BobRate: {x: 0.9, y: 0.45, z: 0, w: 0}
-  BobAmplitude: {x: 0.35, y: 0.5, z: 0, w: 0}
-  BobInputVelocityScale: 1
-  BobMaxInputVelocity: 100
-  BobRequireGroundContact: 1
-  StepPositionForce: {x: 0, y: -0.0012, z: -0.0012}
-  StepRotationForce: {x: 0, y: 0, z: 0}
-  StepSoftness: 4
-  StepMinVelocity: 0
-  StepPositionBalance: 0
-  StepRotationBalance: 0
-  StepForceScale: 1
-  LookDownActive: 0
-  LookDownYawLimit: 60
-  LookDownPositionOffsetMiddle: {x: 0.32, y: -0.37, z: 0.78}
-  LookDownPositionOffsetLeft: {x: 0.27, y: -0.31, z: 0.7}
-  LookDownPositionOffsetRight: {x: 0.6, y: -0.41, z: 0.86}
-  LookDownPositionSpringPower: 1
-  LookDownRotationOffsetMiddle: {x: -3.9, y: 2.24, z: 4.69}
-  LookDownRotationOffsetLeft: {x: -7, y: -10.5, z: 15.6}
-  LookDownRotationOffsetRight: {x: -9.2, y: -9.8, z: 48.84}
-  LookDownRotationSpringPower: 1
-  SoundWield: {fileID: 0}
-  SoundUnWield: {fileID: 0}
-  AnimationWield: {fileID: 0}
-  AnimationUnWield: {fileID: 0}
-  AnimationAmbient: []
-  AmbientInterval: {x: 2.5, y: 7.5}
-  PositionExitOffset: {x: 0, y: -1, z: 0}
-  RotationExitOffset: {x: 40, y: 0, z: 0}
---- !u!114 &11498330
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150828}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3320cb8b89dc2547959c4c6e6621e03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Persist: 0
-  States:
-  - TypeName: vp_FPWeaponShooter
-    Name: Default
-    TextAsset: {fileID: 0}
-    StatesToBlock: 
-  Children: []
-  Siblings: []
-  Family: []
-  Renderers: []
-  AudioSources: []
-  m_ProjectileSpawnPoint: {fileID: 0}
-  ProjectilePrefab: {fileID: 179470, guid: 85d1cafe31c1ca5458130ff97e98bd84, type: 2}
-  ProjectileScale: 1
-  ProjectileFiringRate: 0.3
-  ProjectileSpawnDelay: 0
-  ProjectileCount: 1
-  ProjectileSpread: 0
-  ProjectileSourceIsRoot: 1
-  FireMessage: 
-  MuzzleFlashPosition: {x: 0, y: 0, z: 0}
-  MuzzleFlashScale: {x: 1, y: 1, z: 1}
-  MuzzleFlashFadeSpeed: 0.075
-  MuzzleFlashPrefab: {fileID: 0}
-  MuzzleFlashDelay: 0
-  m_MuzzleFlashSpawnPoint: {fileID: 0}
-  ShellPrefab: {fileID: 0}
-  ShellScale: 1
-  ShellEjectDirection: {x: 1, y: 1, z: 1}
-  ShellEjectPosition: {x: 1, y: 0, z: 1}
-  ShellEjectVelocity: 0.2
-  ShellEjectDelay: 0
-  ShellEjectSpin: 0
-  m_ShellEjectSpawnPoint: {fileID: 0}
-  SoundFire: {fileID: 0}
-  SoundFireDelay: 0
-  SoundFirePitch: {x: 1, y: 1}
-  FirePosition: {x: 0, y: 0, z: 0}
-  ProjectileTapFiringRate: 0.1
-  MotionPositionRecoil: {x: 0, y: 0, z: -0.035}
-  MotionRotationRecoil: {x: -10, y: 0, z: 0}
-  MotionRotationRecoilDeadZone: 0.5
-  MotionDryFireRecoil: -0.1
-  MotionRecoilDelay: 0
-  MuzzleFlashFirstShotMaxDeviation: 180
-  SoundDryFire: {fileID: 0}
-  MotionPositionReset: 0.5
-  MotionRotationReset: 0.5
-  MotionPositionPause: 1
-  MotionRotationPause: 1
-  MotionRotationRecoilCameraFactor: 0
-  MotionPositionRecoilCameraFactor: 0
-  AnimationFire: {fileID: 0}
-  AnimationOutOfAmmo: {fileID: 0}
---- !u!114 &11498598
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 150828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8fe497cd3d20ae40b11197ad7eff64c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!198 &19888514
+--- !u!198 &19860614
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158460}
+  m_GameObject: {fileID: 145948}
   serializedVersion: 2
-  lengthInSec: 2
+  lengthInSec: 1.06
   startDelay:
     scalar: 0
     maxCurve:
@@ -489,16 +91,16 @@ ParticleSystem:
     minMaxState: 0
   speed: 1
   randomSeed: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   moveWithTransform: 1
-  scalingMode: 2
+  scalingMode: 1
   InitialModule:
     serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: 0.2
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -533,7 +135,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: -0.5
+      scalar: 1.6
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -662,11 +264,16 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: 0.36
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
           value: 1
           inSlope: 0
           outSlope: 0
@@ -682,12 +289,17 @@ ParticleSystem:
           inSlope: 0
           outSlope: 0
           tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
       minMaxState: 0
     startRotationX:
-      scalar: 1
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -722,7 +334,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startRotationY:
-      scalar: 1
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -793,15 +405,15 @@ ParticleSystem:
       minMaxState: 0
     randomizeRotationDirection: 0
     gravityModifier: 0
-    maxNumParticles: 2000
+    maxNumParticles: 1000
     rotation3D: 0
   ShapeModule:
     serializedVersion: 2
     enabled: 1
-    type: 1
-    radius: 0.85
-    angle: 61.10538
-    length: 5
+    type: 9
+    radius: 0.31891823
+    angle: 47.024845
+    length: 1.2069283
     boxX: 1
     boxY: 1
     boxZ: 1
@@ -820,11 +432,16 @@ ParticleSystem:
     serializedVersion: 2
     m_Type: 0
     rate:
-      scalar: 2000
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
           value: 1
           inSlope: 0
           outSlope: 0
@@ -849,11 +466,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
       minMaxState: 0
-    cnt0: 500
+    cnt0: 50
     cnt1: 30
     cnt2: 30
     cnt3: 30
-    cntmax0: 500
+    cntmax0: 100
     cntmax1: 30
     cntmax2: 30
     cntmax3: 30
@@ -861,32 +478,27 @@ ParticleSystem:
     time1: 0
     time2: 0
     time3: 0
-    m_BurstCount: 0
+    m_BurstCount: 1
   SizeModule:
     enabled: 1
     curve:
-      scalar: 0.36
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0
-          inSlope: 2
-          outSlope: 2
-          tangentMode: 0
-        - time: 0.024103329
-          value: 0.25245753
-          inSlope: 1.5670061
-          outSlope: 1.5670061
+          value: 1
+          inSlope: 0
+          outSlope: 0
           tangentMode: 0
         - time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-        m_RotationOrder: 4
+        m_RotationOrder: 0
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -907,7 +519,7 @@ ParticleSystem:
   RotationModule:
     enabled: 0
     x:
-      scalar: 1
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -942,7 +554,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     y:
-      scalar: 1
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1263,7 +875,7 @@ ParticleSystem:
     enabled: 0
     m_Mode: 0
     m_Curve:
-      scalar: 1
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1595,7 +1207,7 @@ ParticleSystem:
   RotationBySpeedModule:
     enabled: 0
     x:
-      scalar: 1
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1630,7 +1242,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     y:
-      scalar: 1
+      scalar: 0
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1933,17 +1545,17 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &19931994
+--- !u!199 &19997510
 ParticleSystemRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158460}
+  m_GameObject: {fileID: 145948}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: c10b1630d5621ec48a17223c3c102023, type: 2}
+  - {fileID: 2100000, guid: 9f3080141f1f64197825663e067f94f8, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -1983,5 +1595,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 150828}
+  m_RootGameObject: {fileID: 145948}
   m_IsPrefabParent: 1
