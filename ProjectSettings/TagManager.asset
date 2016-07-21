@@ -15,6 +15,7 @@ TagManager:
   - PsyProjectile
   - messagecenter
   - CanManipulate
+  - MaxPush
   layers:
   - Default
   - TransparentFX
