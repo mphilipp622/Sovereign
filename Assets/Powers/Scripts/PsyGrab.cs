@@ -5,7 +5,7 @@ using UnityEditor;
 public class PsyGrab : MonoBehaviour {
 
 	Ray powerPath;
-	RaycastHit grabbedObjectRay;
+	RaycastHit grabbedObjectRay, outlineRay;
 
 	[SerializeField]
 	Rigidbody powerRB, clone, grabbedObject;
@@ -63,7 +63,7 @@ public class PsyGrab : MonoBehaviour {
 	float angle;
 
 	//These variables are used for particle settings
-	ParticleSystem powerParticleMain;
+	ParticleSystem powerParticleMain, grabParticleMain;
 	SerializedObject powerParticle;
 	Transform chargeParticles;
 	float startingParticleShape, startSpeedParticle;
@@ -76,6 +76,12 @@ public class PsyGrab : MonoBehaviour {
 	AudioClip powerChargeClip;
 	AudioSource powerAudio;
 
+	bool isOutlined;
+	GameObject outlinedObject;
+
+	[SerializeField]
+	float glowMax = 5f, flickerMinimum = 1f, glowSpeed = 6f;
+
 	void Start () 
 	{
 
@@ -85,13 +91,15 @@ public class PsyGrab : MonoBehaviour {
 
 		chargeParticles = transform.FindChild("ChargeParticles");
 		powerParticleMain = chargeParticles.GetComponent<ParticleSystem>();
+		grabParticleMain = transform.FindChild("GrabParticles").GetComponent<ParticleSystem>();
 		powerParticle = new SerializedObject (powerParticleMain);
 		startingParticleShape = powerParticle.FindProperty ("ShapeModule.radius").floatValue = 4.18f;
 		powerParticle.ApplyModifiedProperties();
 		startSpeedParticle = powerParticleMain.startSpeed;
 		chargeParticles.position = spawnpoint.position;
 		chargeParticles.gameObject.SetActive(false);
-
+		isOutlined = false;
+		outlinedObject = null;
 		//powerParticleMain = transform.FindChild(
 
 	}
@@ -99,6 +107,56 @@ public class PsyGrab : MonoBehaviour {
 	void Update () 
 	{
 		powerPath = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+
+		if(Physics.Raycast(powerPath, out outlineRay, 20f))
+		{
+			if(outlineRay.collider.tag == "CanManipulate" && !isOutlined && !haveObject)
+			{
+				outlinedObject = outlineRay.collider.gameObject;
+				StartCoroutine(OutlineObject(outlineRay.collider.gameObject.GetComponent<Renderer>()));
+//				outlineRay.collider.gameObject.GetComponent<Renderer>().material.SetFloat("_MKGlowTexStrength", );
+			}
+			else if(outlineRay.collider.tag == "CanManipulate" && isOutlined)
+			{
+				if(Input.GetButtonDown("Fire1") && canShoot && StaminaManager.SM.stamina > costToShoot)
+				{
+					canShoot = false;
+					psyHolding = true;
+					StaminaManager.SM.CanCharge(false);
+					grabParticleMain.Play();
+
+					OriginalTransform = outlineRay.collider.gameObject.transform.parent;
+					outlineRay.rigidbody.isKinematic = true;
+					outlineRay.collider.gameObject.transform.SetParent (transform);
+
+					HitObject = true;
+					GrabbedObject = outlineRay.rigidbody;
+
+//					grabbedObject.gameObject.layer = 2; //This is necessary to make sure our raycast goes through our object that we are holding.
+
+					//Interpolate the position and rotation of the grabbed object to the holding area's position and rotation.
+					grabbedObject.transform.position = Vector3.Lerp (grabbedObject.transform.position, spawnpoint.position, Time.deltaTime * 5);
+					grabbedObject.transform.rotation = Quaternion.Slerp (grabbedObject.transform.rotation, spawnpoint.rotation, Time.deltaTime * 5);
+
+					//Setup an Angle variable that will determine the angle between our grabbed object's rotation and our holding area's rotation.
+					//This is used to determine when to stop our interpolation and allow the player to manipulate the object
+					angle = Quaternion.Angle (grabbedObject.transform.rotation, spawnpoint.rotation);
+
+					//if the angle between our two rotations is less than 1, then we know we are OK to let the player manipulate the object
+					if (angle < 1)
+					{
+						//change the state of our game. HaveObject is used to allow the user to manipulate objects.
+						haveObject = true;
+					}
+				}
+			}
+			if(outlinedObject != outlineRay.collider.gameObject && canShoot)
+			{
+				isOutlined = false;
+			}
+		}
+
+//		Debug.DrawRay(powerPath.origin, powerPath.direction * 20f, Color.red, 1f);
 
 		//If user Presses Left Mouse and They are able to shoot
 		if (Input.GetButton ("Fire1") && canShoot && StaminaManager.SM.stamina >= 0) 
@@ -343,5 +401,53 @@ public class PsyGrab : MonoBehaviour {
 			haveObject = false;
 			canShoot = true;
 		}
+	}
+
+	IEnumerator OutlineObject(Renderer _rend)
+	{
+		isOutlined = true;
+
+		float glowStrength = 0;
+		while(glowStrength < glowMax)
+		{
+			_rend.material.SetFloat("_MKGlowTexStrength", glowStrength);
+			glowStrength += Time.deltaTime * glowSpeed;
+			yield return null;
+		}
+
+		//Execute while object is outlined
+		while(isOutlined)
+		{
+			
+			while(glowStrength > flickerMinimum)
+			{
+				if(!isOutlined)
+					break;
+				
+				_rend.material.SetFloat("_MKGlowTexStrength", glowStrength);
+				glowStrength -= Time.deltaTime * glowSpeed;
+				yield return null;
+			}
+
+			while(glowStrength < glowMax)
+			{
+				if(!isOutlined)
+					break;
+				
+				_rend.material.SetFloat("_MKGlowTexStrength", glowStrength);
+				glowStrength += Time.deltaTime * glowSpeed;
+				yield return null;
+			}
+
+			yield return null;
+		}
+			
+		while(glowStrength > 0f)
+		{
+			_rend.material.SetFloat("_MKGlowTexStrength", glowStrength);
+			glowStrength -= Time.deltaTime * glowSpeed;
+			yield return null;
+		}
+
 	}
 }
