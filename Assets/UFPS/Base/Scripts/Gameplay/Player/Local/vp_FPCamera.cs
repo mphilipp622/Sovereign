@@ -289,7 +289,7 @@ public class vp_FPCamera : vp_Component
 	/// </summary>
 	protected override void Start()
 	{
-		psyTransform = transform.FindChild("2Power");
+//		psyTransform = transform.FindChild("2Power");
 		base.Start();
 
 		Refresh();
