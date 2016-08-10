@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -136,7 +137,7 @@ MonoBehaviour:
   DamageMethodName: Damage
   ScanType: 0
   ImpactEvent: {fileID: 11400000, guid: b19c00b391ad66c41b6a6053b6b62e30, type: 2}
-  hitscanBulletHelp: 100
+  hitscanBulletHelp: 111
 --- !u!1002 &11400001
 EditorExtensionImpl:
   serializedVersion: 6

@@ -16,6 +16,8 @@ TagManager:
   - messagecenter
   - CanManipulate
   - MaxPush
+  - EnemyFirearm
+  - Enemy
   layers:
   - Default
   - TransparentFX
